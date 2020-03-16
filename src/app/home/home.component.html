@@ -1,0 +1,128 @@
+<div class="cotainer">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header" >Primeng Form</div>
+                    <div class="scrollable">
+                    <div class="card-body">
+                        <form [formGroup]="HomeForm" (ngSubmit)="onSubmit()"> 
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="fname" class="ui-inputtext"/>
+                                    <p *ngIf="fname.invalid && (fname.dirty || fname.touched) && fname.errors " class="input-error">
+                                        Name is required!.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" formControlName="pwd" class="ui-inputtext"/>
+                                    <p *ngIf="pwd.invalid && (pwd.dirty || pwd.touched) && pwd.errors?.required" class="input-error">
+                                        Password is required
+                                    </p>
+                                    <p *ngIf="pwd.errors?.minLength" class="input-error">
+                                        Password must be at least 8 characters
+                                    </p>
+                                    <p *ngIf="pwd.invalid && (pwd.dirty || pwd.touched) && pwd.errors?.invalidPassword" class="input-error">
+                                        Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                                letter and 1 number.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" formControlName="cnfpwd" class="ui-inputtext"/>
+                                    <p *ngIf="cnfpwd.invalid && (cnfpwd.dirty || cnfpwd.touched) && cnfpwd.errors?.required" class="input-error">
+                                        Confirm Password is required!.
+                                    </p>
+                                    <p *ngIf="cnfpwd.invalid && (cnfpwd.dirty || cnfpwd.touched) && cnfpwd.errors?.passwordMismatch" class="input-error">
+                                        Passwords doesnot match
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Email</label>
+                                <div class="col-md-6">
+                                    <input type="text" formControlName="email" placeholder="Email" class="ui-inputtext">
+                                    <p *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.required" class="input-error">
+                                        Email is required.
+                                    </p>
+                                    <p *ngIf="email.errors?.email" class="input-error">
+                                        Enter a valid email address.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Clendar</label>
+                                <div class="col-md-6">
+                                    <!-- <p-calendar [(ngModel)]="date1" dateFormat="dd/mm/yy"></p-calendar> -->
+                                    <p-calendar formControlName="date"  name="date" dateFormat="dd/mm/yy" showTime="true"></p-calendar>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Skills</label>
+                                <div class="col-md-6">
+                                    <div class="ui-g-12" *ngFor="let item of skills;">
+                                        <p-checkbox name="topskills" [formControl]="topskills" [value]="item.value" label="{{item.name}}" (click)="getCheckbox(item)"></p-checkbox>
+                                    </div>
+                                    <p *ngIf="topskills.invalid && (topskills.dirty || topskills.touched) && topskills.errors?.required" class="input-error">
+                                        Please select atleast 1 options.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">colorpicker</label>
+                                <div class="col-md-6">
+                                    <p-colorPicker [(ngModel)]="color2"></p-colorPicker>
+                                </div>
+                            </div> -->
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Gender</label>
+                                <div class="col-md-6">
+                                    <p-dropdown [options]="gender" formControlName="selectedGender"></p-dropdown>
+                                    <p *ngIf="selectedGender.invalid && (selectedGender.dirty || selectedGender.touched) && selectedGender.errors?.required" class="input-error">
+                                        Please select atleast 1 options.
+                                    </p>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">City</label>
+                                <div class="col-md-6">
+                                    <div class="ui-g-12" *ngFor="let item of cities;">
+                                        <p-radioButton name="gCity"  formControlName="gCity" value="{{item.value}}" label="{{item.name}}"></p-radioButton>
+                                    </div>
+                                    <p *ngIf="gCity.invalid && (gCity.dirty || gCity.touched) && gCity.errors?.required" class="input-error">
+                                        Please select atleast 1 options.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Address</label>
+                                <div class="col-md-6">
+                                    <div class="ui-g-12">
+                                        <textarea class="ui-inputtext" [rows]="5" [cols]="30" formControlName="address" autoResize="autoResize"></textarea>
+                                    </div>
+                                    <p *ngIf="address.invalid && (address.dirty || address.touched) && address.errors?.required" class="input-error">
+                                        Please type the content.
+                                    </p>
+                                </div>
+                            </div>
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                     Save
+                                    </button>
+                                </div>
+                               
+                        </form>
+
+                        
+                    </div>              
+                    </div>
+                </div>
+        </div>
+    </div> 
+</div>

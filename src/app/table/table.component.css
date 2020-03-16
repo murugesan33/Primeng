@@ -1,0 +1,102 @@
+.ui-table.ui-table-cars .ui-table-caption.ui-widget-header {
+    border: 0 none;
+    padding: 12px;
+    text-align: left;
+    font-size: 20px;
+}
+
+.ui-column-filter {
+    margin-top: 1em;
+}
+
+.ui-column-filter .ui-multiselect-label {
+    font-weight: 500;
+}
+
+.ui-table.ui-table-cars .ui-table-thead > tr > th {
+    border: 0 none;
+    text-align: left;
+}
+
+.ui-table-globalfilter-container {
+    float: right;
+    display: inline;
+}
+
+.ui-table.ui-table-cars .ui-table-tbody > tr > td {
+    border: 0 none;
+}
+
+.ui-table.ui-table-cars .ui-table-tbody .ui-column-title {
+    font-size: 16px;
+}
+
+.ui-table.ui-table-cars .ui-paginator {
+    border: 0 none;
+    padding: 1em;
+}
+
+.my-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.my-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.login-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.login-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+.card-header{
+    background-color: #af3a86;
+    color:white;
+}
+
+h1{
+    color:black;
+}
+.display-4{
+    font-size: 1.5rem;
+}
+.text-white{
+    color:black !important;
+}
+.col-md-3{
+    padding-left:0px;
+}
+label{
+    margin-bottom: 0px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.error, .input-error{
+    margin:2px;
+    font-size: 10px;
+    font-weight: bold;
+    color:red;
+}
+.error{
+    text-align: center;
+}
+.ng-error{
+    border: 2px solid red;
+}
+.cl-mr-01{
+    margin-left:12px;
+}
+.scrollable{
+    overflow-y: auto;
+    max-height: 400px;
+  }

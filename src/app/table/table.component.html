@@ -1,0 +1,209 @@
+<br>
+<br>
+<div class="cotainer">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header">Primeng Table</div>
+            <div class="scrollable">
+                <div class="card-body">
+
+                
+<!-- <p-table [value]="cars">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Vin</th>
+            <th>Year</th>
+            <th>Brand</th>
+            <th>Color</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-car>
+        <tr>
+            <td>{{car.vin}}</td>
+            <td>{{car.year}}</td>
+            <td>{{car.brand}}</td>
+            <td>{{car.color}}</td>
+        </tr>
+    </ng-template>
+</p-table> -->
+
+<!-- <p-table [value]="cars">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of cols">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-car>
+        <tr>
+            <td *ngFor="let col of cols">
+                    {{car[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table> -->
+
+
+<!-- <p-table [columns]="cols" [value]="cars">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-car let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                    {{car[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table> -->
+
+<!--   Sections   -->
+<!-- <p-table [columns]="cols" [value]="cars">
+    <ng-template pTemplate="caption">
+        List of Cars
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="footer" let-columns>
+        <tr>
+            <td *ngFor="let col of columns">
+            {{col.header}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        There are {{cars?.length}} cars
+    </ng-template>
+</p-table> -->
+
+
+<!--Columns-->
+<!-- <p-table [value]="sales">
+    <ng-template pTemplate="header">
+        <tr>
+            <th rowspan="3">Brand</th>
+            <th colspan="4">Sale Rate</th>
+        </tr>
+        <tr>
+            <th colspan="2">Sales</th>
+            <th colspan="2">Profits</th>
+        </tr>
+        <tr>
+            <th>Last Year</th>
+            <th>This Year</th>
+            <th>Last Year</th>
+            <th>This Year</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-sale>
+        <tr>
+            <td>{{sale.brand}}</td>
+            <td>{{sale.lastYearSale}}</td>
+            <td>{{sale.thisYearSale}}</td>
+            <td>{{sale.lastYearProfit}}</td>
+            <td>{{sale.thisYearProfit}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <tr>
+            <td colspan="3">Totals</td>
+            <td>$506,202</td>
+            <td>$531,020</td>
+        </tr>
+    </ng-template>
+</p-table> -->
+
+<!--Paginator-->
+<!-- <p-table [columns]="cols" [value]="cars" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table> -->
+
+<!--Sorting & Pagination-->
+<!-- <h3 class="first">Single Sort</h3>
+<p-table [columns]="cols" [value]="cars" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table> -->
+
+<!--Sorting & Pagination & Filter-->
+<p-table #dt styleClass="ui-table-cars" [columns]="cols" [value]="cars" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="caption">
+        List of Cars
+        <div class="ui-table-globalfilter-container">
+            <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:250px;">
+        </div>
+    </ng-template>
+    
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+            <td>
+                <button pButton type="button" class="ui-button-success" icon="pi pi-search" style="margin-right: .5em"></button>
+                <button pButton type="button" class="ui-button-warning" icon="pi pi-pencil" (click)="getOnClickEvent(rowData)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
+</div> 
+            </div>    
+        </div>
+    </div>
+</div>
