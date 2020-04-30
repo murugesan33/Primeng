@@ -22,7 +22,7 @@
     "@angular/router": "~8.2.14",
     "bootstrap": "^4.4.1",
     "chart.js": "^3.0.0-alpha",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng2-charts": "^2.2.2",
     "primeicons": "^2.0.0",
     "primeng": "^9.0.0",
